@@ -32,6 +32,14 @@ expect(undefined).toBeTruthy("abc")
 
 3)toMatch and toBeCloseTo()
 toMatch:- it is used for regualr expression
+toBeCloseTo():- it is close to the number
+
+4)toBeDefined() and toBeUndefined()
+
+5)tobenull(),tocontain(),tobeNan(),tobePositiveInfinity(),tobeNegativeInfinity()
+
+=>beforeEach:- run before each test case  
+=>afterEach:- run after each test case  
 
 
 

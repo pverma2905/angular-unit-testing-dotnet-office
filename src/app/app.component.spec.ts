@@ -81,7 +81,71 @@ describe('AppComponent', () => {
   
   it('jasmine matcher match function',()=>{
     var input = 'The dotnet office tutorial';
-    var strphone
-    
-  })
+    var strphone ="001-789-56-67"
+    expect(input).toMatch(/dotnet office/)
+    expect(input).toMatch(/dotnet office/i)
+    expect(input).not.toMatch(/dot1/)
+    expect(strphone).toMatch(/\d{3}-\d{3}-\d{2}-\d{2}/);
+    })
+
+    it('jasmine matcher toBe close to',()=>{
+      var pi = 3.1415926, e=2.78
+      expect(pi).not.toBeCloseTo(e);
+      expect(pi).toBeCloseTo(e,0);
+      expect(4.334).toBeCloseTo(4.334);
+      expect(4.334).toBeCloseTo(4.334,1);
+      expect(4.334).toBeCloseTo(4.334,2);
+      expect(4.334).not.toBeCloseTo(4.3,2);
+      expect(4.334).not.toBeCloseTo(4.22,3);
+      expect(4.334).not.toBeCloseTo(4.22,4);
+      })
+
+      it('jasmine matcher tobe defined',()=>{
+        var MyObj ={
+          foo:"foo"
+        }
+        var Myfunction = (function() {})();
+        var strUndefined;
+        expect("The Dotnet office").toBeDefined();
+        expect(MyObj).toBeDefined();
+        expect(MyObj.foo).toBeDefined();
+        expect(Myfunction).not.toBeDefined();
+        expect(strUndefined).not.toBeDefined();
+      })
+      it('jasmine matcher tobe Undefined',()=>{
+        var MyObj ={
+          foo:"foo"
+        }
+        var Myfunction = (function() {})();
+        var strUndefined;
+        expect(MyObj).not.toBeUndefined();
+        expect(MyObj.foo).not.toBeUndefined();
+        expect(Myfunction).toBeUndefined();
+        expect(strUndefined).toBeUndefined();
+      })
+
+      it('jasmine matcher-toBeNull',()=>{
+        var nullValue = null;
+        var valueUndefined;
+        var notNull = "notNull";
+        expect(null).toBeNull();
+        expect(nullValue).toBeNull();
+        expect(valueUndefined).not.toBeNull();
+        expect(notNull).not.toBeNull();
+      })
+
+      it('jasmine matcher-tobeNan',()=>{
+        expect(0/0).toBeNaN();
+        expect(0/5).not.toBeNaN();
+      })
+
+      it('jasmine matcher-toBePositiveInfinity',()=>{
+        expect(1/0).toBePositiveInfinity();
+      })
+
+      it('jasmine matcher-toBeNegativeInfinity',()=>{
+        expect(-1/0).toBeNegativeInfinity();
+      })
+
+      
 });
